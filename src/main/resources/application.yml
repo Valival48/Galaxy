@@ -3,9 +3,9 @@ server:
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/Galaxy
+    url: jdbc:postgresql://localhost:5432/galaxy
     username: postgres
-    password: traviesa88
+    password: postgres
   jpa:
     database: postgresql
     hibernate:

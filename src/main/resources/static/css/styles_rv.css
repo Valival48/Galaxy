@@ -1,0 +1,81 @@
+/*{
+    border: 1px solid black;
+}*/
+
+.btn{
+    background-color: #6064DF;
+    border-radius: 18px;
+    padding-left: 45px;
+    padding-right: 45px;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.btn:focus{
+    background-color: #6064DF;
+}
+
+.btn:hover{
+    background-color: #6064DF;
+}
+
+.button-add{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bg{
+    background-color: #9E9BED;
+}
+
+.navbar-dark .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.main{
+    display: flex;
+    flex-direction: row-reverse;
+    height: 100vh;
+}
+
+.pos-f-t{
+    width: 4%;
+}
+
+.formulario{
+    background-color: #CFC6F5;
+    width: 96%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.titulo{
+    display: flex;
+    justify-content: start;
+    width: 100%;
+    padding-left: 5%;
+    color: #6064DF;
+    margin-bottom: 10px;
+}
+
+.navbar{
+    height: 100%;
+    display: flex;
+    align-content: flex-start;
+    justify-content: center;
+}
+
+.formulario-div{
+    padding: 2%;
+    background-color: #F3F3F3;
+    height: 80%;
+    width: 90%;
+}
+
+.titulo h1{
+    font-weight: 700;
+    font-size: 65px;
+}

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+<link th:href="@{/css/style.css}" rel="stylesheet">
+
+<title>Estructura de cartera!</title>
+</head>
+<body>
+  <h1> Estructura de cartera</h1>
+	<div class="card" style="width: 85%; position: relative ; " >
+
+		<form>
+			<br><label for="icliente">Cliente:</label> 
+			<input id="icliente" type="text" size="30" name="cliente" placeholder="Ingrese el cliente">
+			 <label for="itipoCambio">Tipo de cambio:</label> 
+			 <input id="itipoCambio" type="number" size="27" min="0"
+				name="cambio" placeholder="Ingrese el tipo de cambio"> 
+				<label>Moneda:</label>
+			<select class="">
+				<option selected>Selecciona una moneda</option>
+				<option value="1">Nacional</option>
+				<option value="2">Extranjera</option>
+			</select><br>
+			<br> <label for="icartera">Estructura de cartera al:</label> <input
+				id="icartera" type="date" name="cartera" Style="margin-right:5px auto;">
+		</form>
+
+		<div class="container" style="width: 90%; margin: 50px auto; background-color: white; display:block; ">
+		<table >
+                <thead>
+                    <tr>
+                        <th>Tipo de valor</th>
+                        <th>Emisor</th>
+                        <th>Garantia</th>
+                        <th>ValorizaMN</th>
+                        <th>ValorizaME</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th colspan="5" scope="col">total</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    <tr>
+                        <td scope="col"></td>
+                        <td scope="col"></td>
+                        <td scope="col"></td>
+                        <td scope="col"></td>
+                        <td scope="col"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+		</div>
+	</div>
+
+
+	<script src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

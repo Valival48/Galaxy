@@ -1,0 +1,55 @@
+h1{
+	color: #6064DF;
+	margin-left: 305px;
+	font-family: Poppins;
+}
+
+body {
+	background-color: Thistle;
+}
+
+.p{
+	color: BlueViolet;
+	font-weight: bold;
+	text-decoration: none;
+	font-size: xx-large;
+	font-style: normal;
+	text-align: justify;
+}
+
+.card {
+	margin-top: 100px;
+	margin-left: 100px;
+	background-color: WhiteSmoke;
+	height: 500px;
+}
+
+
+
+table {
+	background-color: white;
+	text-align: center;
+	border-collapse: collapse;
+	width: 98%;
+	height: 98%;
+	border: 1px solid black;
+	margin: 70px auto;
+}
+
+th, td {
+	border: 1px solid black;
+	padding: 10px;
+}
+
+thead, th {
+	background-color: Silver;
+	border-bottom: solid 1px;
+	color: black;
+	text-align: left;
+}
+
+tbody {
+	border: 1px;
+	background-color: White;
+}
+

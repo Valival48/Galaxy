@@ -1,0 +1,47 @@
+h1{
+	color: #6064DF;
+	margin-left: 305px;
+	font-family: Poppins;
+}
+p{
+	margin-left: 30px;
+	color: #707070;
+	font-family: Poppins;
+}
+label{
+	margin-left: 30px;
+	color: #707070;
+	font-family: Poppins;
+}
+#container{
+	width: 900px;
+	height: 500px;
+	margin: 0px auto;
+	border: 1px solid transparent;
+	font-family: Poppins;
+	background-color: white;
+}
+.botonxd{
+	background-color: #6064DF;
+	border-radius: 10px;
+	color: white;
+	font-family: Poppins;
+	width: 100px;
+	height: 30px;
+}
+.primerafila{
+	background-color: #E0E0E0;
+	font-family: Poppins;
+}
+body{
+	background-color: #CFC6F5;
+}
+table{
+	margin-left: 30px;
+}
+td,th{
+	padding-left: 35px;
+	padding-right: 35px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}

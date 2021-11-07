@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <title>Monto Nacional</title>
+    </head>
+    <style>
+        html {
+          box-sizing: border-box;
+        }
+        body {
+            background-color: #CFC6F5
+        }
+        *, *:before, *:after {
+          box-sizing: inherit;
+        }
+        h2 {
+            font-size: 48px;
+            color: #6064DF;
+            margin-left: 70px;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+        h4 {
+            font-size: 18px;
+        }
+        .contenedor {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        main {
+            background-color: #F3F3F3;
+        }
+
+
+        .info-finanzas {
+            margin: 40px auto;
+        }
+        .formulario {
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+        .campo {
+            display: flex;
+            align-items: baseline;
+            gap: 20px;
+        }
+        #tipoCambio {
+            width: 50px;
+        }
+        .boton {
+            border: none;
+            border-radius: 15px;
+            background-color:  #6064DF;
+            color: #fff;
+            font-size: 18px;
+            padding: 6px 40px;
+        }
+
+        .tabla {
+            background-color: #fff;
+            max-width: 1200px;
+            padding: 10px;
+            margin: 0 auto;
+        }
+
+    </style>
+
+    <body>
+        <h2>Movimiento Monto Nacional</h2>
+
+        <main class="contenedor">
+            <div class="info">
+                <h4>Señor/es: {Vladimir Guzmán}</h4>
+                <h4>{Av. Miraflores 898 - Las Biomas}</h4>
+                <h4>{Lima}</h4>
+            </div>
+            <div class="info-finanzas">
+                <form action="#" class="formulario">
+                    <div class="campo">
+                        <label for="tipoCambio">Tipo de Cambio: </label>
+                        <input type="text" class="fechas" id="tipoCambio">
+                    </div>
+                    <div class="campo">
+                        <label for="estadoCuenta">Estado de Cuenta corriente MN</label>
+                        <input type="date" class="fechas" id="estadoCuenta">
+                    </div>
+                    <div class="campo">
+                        <label for="al">Al</label>
+                        <input type="date" name="al" id="al">
+                    </div>
+                    <input type="submit" name="mostrar" value="Mostrar" class="boton">
+                </form>
+            </div>
+            <div class="tabla">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">Fecha</th>
+                            <th scope="col">Fecha Valor</th>
+                            <th scope="col">Descripcion</th>
+                            <th scope="col">Cargo</th>
+                            <th scope="col">Abono</th>
+                            <th scope="col">Saldo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{}</td>
+                            <td>{}</td>
+                            <td>{}</td>
+                            <td>{}</td>
+                            <td>{}</td>
+                            <td>{}</td>
+                        </tr>
+                        <tr>
+                            <td>{}</td>
+                            <td>{}</td>
+                            <td>{}</td>
+                            <td>{}</td>
+                            <td>{}</td>
+                            <td>{}</td>
+                        </tr>
+                        <tr>
+                            <td>{}</td>
+                            <td>{}</td>
+                            <td>{}</td>
+                            <td>{}</td>
+                            <td>{}</td>
+                            <td>{}</td>
+                        </tr>
+                        <tr>
+                            <td>{}</td>
+                            <td>{}</td>
+                            <td>{}</td>
+                            <td>{}</td>
+                            <td>{}</td>
+                            <td>{}</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" align="right">Saldo Disponible</td>
+                            <td>{}</td>
+                            <td>{}</td>
+                            <td>{}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </body>
+
+</html>

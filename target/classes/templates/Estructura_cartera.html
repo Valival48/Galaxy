@@ -10,10 +10,10 @@
 <title>Estructura de cartera!</title>
 </head>
 <body>
-  <h1> Estructura de cartera</h1>
+  <h1 class> Estructura de cartera</h1>
 	<div class="card" style="width: 85%; position: relative ; " >
 
-		<form>
+		<form class="texto1">
 			<br><label for="icliente">Cliente:</label> 
 			<input id="icliente" type="text" size="30" name="cliente" placeholder="Ingrese el cliente">
 			 <label for="itipoCambio">Tipo de cambio:</label> 
@@ -25,11 +25,11 @@
 				<option value="1">Nacional</option>
 				<option value="2">Extranjera</option>
 			</select><br>
-			<br> <label for="icartera">Estructura de cartera al:</label> <input
+			<br> <label for="icartera" style="margin-left:39% ;" >Estructura de cartera al:</label> <input
 				id="icartera" type="date" name="cartera" Style="margin-right:5px auto;">
 		</form>
 
-		<div class="container" style="width: 90%; margin: 50px auto; background-color: white; display:block; ">
+		
 		<table >
                 <thead>
                     <tr>
@@ -57,7 +57,7 @@
             </table>
 
 		</div>
-	</div>
+	
 
 
 	<script src="@{/js/bootstrap.bundle.min.js}"></script>

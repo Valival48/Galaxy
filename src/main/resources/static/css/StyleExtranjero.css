@@ -1,0 +1,36 @@
+body{
+background: #CFC6F5;
+font-family: Poppins, Helvetica, sans-sans-serif;
+
+}
+
+#conteniner{
+  width: 800px;
+  height: 500px;
+  margin: 150pxauto;
+  border: 15px solid;
+  border-color: #F3F3F3;
+background: white;
+}
+header
+{
+  color: #6064DF;
+}
+table{
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: collapse;
+}
+th{
+  background-color:  #E0E0E0;
+  color: white;
+}
+
+td, th{
+  border: 1px solid black;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}

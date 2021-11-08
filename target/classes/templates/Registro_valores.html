@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Valores</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles_rv.css">
+    
+</head>
+<body class="main">
+    <div class="pos-f-t">
+        <div class="collapse" id="navbarToggleExternalContent">
+          <div class="bg p-4">
+            <h4 class="text-white">Collapsed content</h4>
+            <span class="text-muted">Toggleable via the navbar brand.</span>
+          </div>
+        </div>
+        <nav class="navbar navbar-dark bg">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </nav>
+    </div>
+    <section class="formulario">
+        <div class="titulo">
+            <h1>Registro de Valores</h1>
+        </div>
+        <div class="formulario-div">
+            <br>
+            <div class="mb-3 row">
+                <div class="col-md-1">
+                    <label for="cliente" class="col-sm-1">Cliente</label>
+                </div>
+                <div class="col-md-2">
+                    <input type="text" class="form-control" id="nombre">
+                </div>
+                <div class="col-md-2">
+                    <label for="fechaEmision" class="col-sm-5">Fecha Emision</label>
+                </div>
+                <div class="col-md-2">
+                    <input type="date" class="form-control" id="fechaEmision">
+                </div>
+                <div class="button-add col-md-2">
+                    <button type="button" class="btn btn-success">Agregar</button>
+                </div>
+            <div>
+            <br>
+            <div class="mb-3 row">
+                <div class="col-md-1">
+                    <label for="nombre" class="col-sm-1">Emisor</label>
+                </div>
+                <div class="col-md-2">
+                    <input type="text" class="form-control" id="emisor">
+                </div>
+                <div class="col-md-2">
+                    <label for="nombre" class="col-sm-6">Fecha Vencimiento</label>
+                </div>
+                <div class="col-md-2">
+                    <input type="date" class="form-control" id="fechaVencimiento">
+                </div>
+            <div>
+            <br>
+            <div class="mb-3 row">
+                <div class="col-md-1">
+                    <label for="nombre" class="col-sm-1">Importe</label>
+                </div>
+                <div class="col-md-2">
+                    <input type="number" class="form-control" id="importe">
+                </div>
+                <div class="col-md-1">
+                    <label for="nombre" class="col-sm-1">Status</label>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group col-md-10">
+                        <select id="status" class="form-control">
+                        <option selected>Status*</option>
+                        <option>Opcion 1</option>
+                        <option>Opcion 2</option>
+                        <option>Opcion 3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <label for="nombre" class="col-sm-1">Moneda</label>
+                </div>
+                <div class="col-md-1">
+                    <div class="form-group col-md-10">
+                        <select id="moneda" class="form-control">
+                            <option selected>Moneda*</option>
+                            <option>USD($)</option>
+                            <option>EUR(€)</option>
+                            <option>GBP(£)</option>
+                            <option>PEN(S/)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <label for="nombre" class="col-sm-10">Tipo de Valor</label>
+                </div>
+                <div class="col-md-2">
+                    <select id="tipoDeValor" class="form-control">
+                        <option selected>Tipo de Valor*</option>
+                        <option>Opcion 1</option>
+                        <option>Opcion 2</option>
+                        <option>Opcion 3</option>
+                    </select>
+                </div>
+            <br>
+            <br>
+            <br>
+            <div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Cliente</th>
+                            <th>Tipo de Valor</th>
+                            <th>Emisor</th>
+                            <th>F.E.</th>
+                            <th>F.V.</th>
+                            <th>Importe</th>
+                            <th>Moneda</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr></tr>
+                    </tbody>
+                </table>
+            </div>
+    </div>
+    </section>
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -22,4 +22,9 @@ public class PrincipalController {
 		return "Registro_valores";
 	}
 	
+	@GetMapping("monto")
+	public String monto() {
+		return "MontoExtranjero";
+	}
+	
 }

@@ -5,7 +5,8 @@ h1{
 }
 
 body {
-	background-color: Thistle;
+	background: #CFC6F5;
+font-family: Poppins, Helvetica, sans-sans-serif;
 }
 
 .p{
@@ -53,3 +54,6 @@ tbody {
 	background-color: White;
 }
 
+.texto1{
+	margin-left: 12px;
+}

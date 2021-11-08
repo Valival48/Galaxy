@@ -71,7 +71,11 @@ public class Valor {
         this.direccion = direccion;
     }
 
-    public Long getId() {
+    public Valor() {
+		
+	}
+
+	public Long getId() {
         return id;
     }
 

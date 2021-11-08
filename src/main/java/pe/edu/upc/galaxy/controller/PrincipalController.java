@@ -17,5 +17,9 @@ public class PrincipalController {
 		return "Movimiento_comitentes";
 	}
 	
+	@GetMapping("registro")
+	public String registro() {
+		return "Registro_valores";
+	}
 	
 }

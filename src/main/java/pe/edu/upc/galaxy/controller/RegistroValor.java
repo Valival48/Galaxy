@@ -18,8 +18,8 @@ import pe.edu.upc.galaxy.business.ValorService;
 import pe.edu.upc.galaxy.entity.Valor;
 
 @Controller
-@RequestMapping("registros")
-@SessionAttributes("valor")
+@RequestMapping("/registro")
+@SessionAttributes("{valor}")
 public class RegistroValor {
 	@Autowired
 	private ValorService valorService;
@@ -28,38 +28,42 @@ public class RegistroValor {
 	public String list(Model model) {
 		try {
 			List<Valor> valores = valorService.getAll();
-			model.addAttribute("valores", valores);
+			model.addAttribute("valor", valores);
 		} catch (Exception e) {
 
 			e.printStackTrace();
 		}
-		return "registros/Registro_Valores";
+		return "registro/newValor";
 	}
 
 	@GetMapping("newValor")
-	public String nuevo(Model model, @Valid @ModelAttribute("valor") Valor valor) {
+	public String newValor(Model model) {
 		try {
-			model.addAttribute("valor", new Valor());
-
+			model.addAttribute("valor",new Valor());
+			
 		} catch (Exception e) {
+			e.printStackTrace();
+			System.err.println(e.getMessage());
 		}
 
-		return "registros/Registro_Valores";
+		return "registro/Registro_valores.html";
 	}
 
 	@PostMapping("saveValor")
-	public String guardar(Model model , @ModelAttribute("valor") Valor valor) {
-		
-		
+	public String saveValor(Model model, @Valid @ModelAttribute("valor") Valor valor
+			,BindingResult result) {
+		if (result.hasErrors()) {
+		}
+
 		try {
-			
-			Valor valorSaved= valorService.create(valor);
+			Valor valorSaved = valorService.create(valor);
 			model.addAttribute("valor", valorSaved);
 		} catch (Exception e) {
 			e.printStackTrace();
+			System.err.println(e.getMessage());
 		}
-		
-		return "redirect:Registro_Valores";
+
+		return "redirect:/registro/newValor";
 	}
 
 }

@@ -1,9 +1,9 @@
 package pe.edu.upc.galaxy.entity;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import org.springframework.lang.Nullable;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -28,12 +28,12 @@ public class Valor {
     @Column(name = "tipo_valor")
     private String tipo;
     
-    @NotBlank
+    
     @Column(nullable = false, name = "fecha_emision")
     @Temporal(TemporalType.DATE)
     private Date fechaEmision;
 
-    @NotBlank
+    
     @Column(name = "fecha_vencimiento", nullable = false)
     @Temporal(TemporalType.DATE)
     private Date fechaVencimiento;
@@ -45,16 +45,17 @@ public class Valor {
     @Column( name = "status",  nullable = false)
     private String status;
 
+    @Nullable
     @Size(max = 200)
-    @Column(name="descripcion",nullable = false)
+    @Column(name="descripcion",nullable = true)
     private String descripcion;
 
-    @NotNull
+   
     @Column(nullable = false, name = "tipo_moneda")
     private Boolean tipoMoneda;
 
     @Size(max = 50)
-    @Column(name="direccion",nullable = false)
+    @Column(name="direccion",nullable = true)
     private String direccion;
     
     @OneToMany(mappedBy = "valor", fetch = FetchType.LAZY)
@@ -162,7 +163,6 @@ public class Valor {
 		this.carteras = carteras;
 	}
     
-
    
 
   

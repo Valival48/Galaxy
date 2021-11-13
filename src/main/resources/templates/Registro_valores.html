@@ -7,7 +7,7 @@
 
 <title>Registro de Valores</title>
 <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
-<link rel="stylesheet" th:href="@{/css/styles_rv.css}">
+<link th:href="@{/css/styles_rv.css}" rel="stylesheet" >
 
 
 </head>
@@ -32,58 +32,57 @@
 		<div class="titulo">
 			<h1>Registro de Valores</h1>
 		</div>
-		<div class="formulario-div">
+		<form class="formulario-div" th:action="@{/registros/saveValor}" th:object="${valores}" method="post" >
 			<br>
 			<div class="mb-3 row">
 				<div class="col-md-1">
 					<label for="cliente" class="col-sm-1">Cliente</label>
 				</div>
 				<div class="col-md-2">
-					<input type="text" class="form-control" id="nombre">
+					<input type="text" class="form-control" id="nombre" th:field="*{nombreCliente}">
 				</div>
 				<div class="col-md-2">
 					<label for="fechaEmision" class="col-sm-5">Fecha Emision</label>
 				</div>
 				<div class="col-md-2">
-					<input type="date" class="form-control" id="fechaEmision">
+					<input type="date" class="form-control" id="fechaEmision" th:field="*{fechaEmision}">
 				</div>
 				<div class="button-add col-md-2">
-					<button type="button" class="btn btn-success">Agregar</button>
+					<button type="submit" class="btn btn-success">Agregar</button>
 				</div>
-				<div>
+				</div>
 					<br>
 					<div class="mb-3 row">
 						<div class="col-md-1">
 							<label for="nombre" class="col-sm-1">Emisor</label>
 						</div>
 						<div class="col-md-2">
-							<input type="text" class="form-control" id="emisor">
+							<input type="text" class="form-control" id="emisor" th:field="*{nombreEmisor}">
 						</div>
 						<div class="col-md-2">
 							<label for="nombre" class="col-sm-6">Fecha Vencimiento</label>
 						</div>
 						<div class="col-md-2">
-							<input type="date" class="form-control" id="fechaVencimiento">
+							<input type="date" class="form-control" id="fechaVencimiento" th:field="*{fechaVencimiento}">
 						</div>
-						<div>
+						</div>
 							<br>
 							<div class="mb-3 row">
 								<div class="col-md-1">
 									<label for="nombre" class="col-sm-1">Importe</label>
 								</div>
 								<div class="col-md-2">
-									<input type="number" class="form-control" id="importe">
+									<input type="number" class="form-control" id="importe" th:field="*{importe}">
 								</div>
 								<div class="col-md-1">
 									<label for="nombre" class="col-sm-1">Status</label>
 								</div>
 								<div class="col-md-2">
 									<div class="form-group col-md-10">
-										<select id="status" class="form-control">
-											<option selected>Status*</option>
-											<option value="1">Opcion 1</option>
-											<option>Opcion 2</option>
-											<option>Opcion 3</option>
+										<select id="status" class="form-control" th:field="*{status}">
+											<option selected>-</option>
+											<option>Por cobrar</option>
+											<option>Pagada</option>
 										</select>
 									</div>
 								</div>
@@ -92,12 +91,10 @@
 								</div>
 								<div class="col-md-1">
 									<div class="form-group col-md-10">
-										<select id="moneda" class="form-control">
-											<option selected>Moneda*</option>
-											<option>USD($)</option>
-											<option>EUR(€)</option>
-											<option>GBP(£)</option>
-											<option>PEN(S/)</option>
+										<select id="moneda" class="form-control" th:field="*{tipoMoneda}">
+											<option selected>-</option>
+											<option value=1>USD($)</option>
+											<option value=0>PEN(S/)</option>								
 										</select>
 									</div>
 								</div>
@@ -105,11 +102,11 @@
 									<label for="nombre" class="col-sm-10">Tipo de Valor</label>
 								</div>
 								<div class="col-md-2">
-									<select id="tipoDeValor" class="form-control">
-										<option selected>Tipo de Valor*</option>
-										<option>Opcion 1</option>
-										<option>Opcion 2</option>
-										<option>Opcion 3</option>
+									<select id="tipoDeValor" class="form-control" th:field="*{tipo}">
+										<option selected>-</option>
+										<option>Factura</option>
+										<option>Letra</option>
+										<option>R.honorarios</option>
 									</select>
 								</div>
 								<br> <br> <br>
@@ -118,10 +115,10 @@
 										<thead>
 											<tr>
 												<th>Cliente</th>
-												<th>Tipo de Valor</th>
+												<th>Valor</th>
 												<th>Emisor</th>
-												<th>F.E.</th>
-												<th>F.V.</th>
+												<th>F.Emision</th>
+												<th>F.Vencimiento</th>
 												<th>Importe</th>
 												<th>Moneda</th>
 												<th>Status</th>
@@ -132,8 +129,9 @@
 										</tbody>
 									</table>
 								</div>
-							</div>
+								</div>
+							</form>
 	</section>
-	<script src="js/bootstrap.bundle.min.js"></script>
+	<script th:src="js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

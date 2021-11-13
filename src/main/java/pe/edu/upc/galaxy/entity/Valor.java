@@ -5,8 +5,8 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-
-import java.util.Calendar;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -15,35 +15,38 @@ public class Valor {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
-    @Column(name = "nombre_valor")
+    @Column(name = "nombre_cliente")
     @Size(max = 50)
-    private String nombreValor;
+    private String nombreCliente;
 
     @Column(name = "nombre_emisor")
     @Size(max = 50)
     private String nombreEmisor;
 
+    @Column(name = "tipo_valor")
+    private String tipo;
+    
     @NotBlank
     @Column(nullable = false, name = "fecha_emision")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Calendar fechaEmision;
+    @Temporal(TemporalType.DATE)
+    private Date fechaEmision;
 
     @NotBlank
-    @Column(nullable = false)
-    @Temporal(TemporalType.TIMESTAMP)
-    private Calendar fechaVencimiento;
+    @Column(name = "fecha_vencimiento", nullable = false)
+    @Temporal(TemporalType.DATE)
+    private Date fechaVencimiento;
 
-    @Column(nullable = false)
-    private double cantidad;
+    @Column(name="importe",nullable = false)
+    private double importe;
 
     @Size(max = 50)
-    @Column(nullable = false)
+    @Column( name = "status",  nullable = false)
     private String status;
 
     @Size(max = 200)
-    @Column(nullable = false)
+    @Column(name="descripcion",nullable = false)
     private String descripcion;
 
     @NotNull
@@ -51,119 +54,118 @@ public class Valor {
     private Boolean tipoMoneda;
 
     @Size(max = 50)
-    @Column(nullable = false)
+    @Column(name="direccion",nullable = false)
     private String direccion;
     
     @OneToMany(mappedBy = "valor", fetch = FetchType.LAZY)
 	private List<Cartera> carteras;
     
-
-    public Valor(String nombreValor, String nombreEmisor, Calendar fechaEmision, Calendar fechaVencimiento, double cantidad,
-                 String status, String descripcion, Boolean tipoMoneda, String direccion) {
-        this.nombreValor = nombreValor;
-        this.nombreEmisor = nombreEmisor;
-        this.fechaEmision = fechaEmision;
-        this.fechaVencimiento = fechaVencimiento;
-        this.cantidad = cantidad;
-        this.status = status;
-        this.descripcion = descripcion;
-        this.tipoMoneda = tipoMoneda;
-        this.direccion = direccion;
-    }
-
-    public Valor() {
-		
+        
+	public Valor() {
+		super();
+		carteras = new ArrayList<Cartera>();
 	}
 
-	public Long getId() {
-        return id;
-    }
+	public Integer getId() {
+		return id;
+	}
 
-    public Valor setId(Long id) {
-        this.id = id;
-        return this;
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public String getNombreValor() {
-        return nombreValor;
-    }
+	public String getNombreCliente() {
+		return nombreCliente;
+	}
 
-    public Valor setNombreValor(String nombreValor) {
-        this.nombreValor = nombreValor;
-        return this;
-    }
+	public void setNombreCliente(String nombreCliente) {
+		this.nombreCliente = nombreCliente;
+	}
 
-    public String getNombreEmisor() {
-        return nombreEmisor;
-    }
+	public String getNombreEmisor() {
+		return nombreEmisor;
+	}
 
-    public Valor setNombreEmisor(String nombreEmisor) {
-        this.nombreEmisor = nombreEmisor;
-        return this;
-    }
+	public void setNombreEmisor(String nombreEmisor) {
+		this.nombreEmisor = nombreEmisor;
+	}
 
-    public Calendar getFechaEmision() {
-        return fechaEmision;
-    }
+	public String getTipo() {
+		return tipo;
+	}
 
-    public Valor setFechaEmision(Calendar fechaEmision) {
-        this.fechaEmision = fechaEmision;
-        return this;
-    }
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
 
-    public Calendar getFechaVencimiento() {
-        return fechaVencimiento;
-    }
+	public Date getFechaEmision() {
+		return fechaEmision;
+	}
 
-    public Valor setFechaVencimiento(Calendar fechaVencimiento) {
-        this.fechaVencimiento = fechaVencimiento;
-        return this;
-    }
+	public void setFechaEmision(Date fechaEmision) {
+		this.fechaEmision = fechaEmision;
+	}
 
-    public double getCantidad() {
-        return cantidad;
-    }
+	public Date getFechaVencimiento() {
+		return fechaVencimiento;
+	}
 
-    public Valor setCantidad(double cantidad) {
-        this.cantidad = cantidad;
-        return this;
-    }
+	public void setFechaVencimiento(Date fechaVencimiento) {
+		this.fechaVencimiento = fechaVencimiento;
+	}
 
-    public String getStatus() {
-        return status;
-    }
+	public double getImporte() {
+		return importe;
+	}
 
-    public Valor setStatus(String status) {
-        this.status = status;
-        return this;
-    }
+	public void setImporte(double importe) {
+		this.importe = importe;
+	}
 
-    public String getDescripcion() {
-        return descripcion;
-    }
+	public String getStatus() {
+		return status;
+	}
 
-    public Valor setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-        return this;
-    }
+	public void setStatus(String status) {
+		this.status = status;
+	}
 
-    public Boolean getTipoMoneda() {
-        return tipoMoneda;
-    }
+	public String getDescripcion() {
+		return descripcion;
+	}
 
-    public Valor setTipoMoneda(Boolean tipoMoneda) {
-        this.tipoMoneda = tipoMoneda;
-        return this;
-    }
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
 
-    public String getDireccion() {
-        return direccion;
-    }
+	public Boolean getTipoMoneda() {
+		return tipoMoneda;
+	}
 
-    public Valor setDireccion(String direccion) {
-        this.direccion = direccion;
-        return this;
-    }
+	public void setTipoMoneda(Boolean tipoMoneda) {
+		this.tipoMoneda = tipoMoneda;
+	}
+
+	public String getDireccion() {
+		return direccion;
+	}
+
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
+	}
+
+	public List<Cartera> getCarteras() {
+		return carteras;
+	}
+
+	public void setCarteras(List<Cartera> carteras) {
+		this.carteras = carteras;
+	}
+    
+
+   
+
+  
 }
 
 

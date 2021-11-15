@@ -4,60 +4,87 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
-<link th:href="@{/css/style.css}" rel="stylesheet">
-
 <title>Estructura de cartera!</title>
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+<link th:href="@{/css/normalize.css}" rel="stylesheet">
+<link th:href="@{/css/styles_rv.css}" rel="stylesheet">
+
+
 </head>
-<body>
-  <h1 class> Estructura de cartera</h1>
-	<div class="card" style="width: 85%; position: relative ; " >
-
-		<form class="texto1">
-			<br><label for="icliente">Cliente:</label> 
-			<input id="icliente" type="text" size="30" name="cliente" placeholder="Ingrese el cliente">
-			 <label for="itipoCambio">Tipo de cambio:</label> 
-			 <input id="itipoCambio" type="number" size="27" min="0"
-				name="cambio" placeholder="Ingrese el tipo de cambio"> 
-				<label>Moneda:</label>
-			<select class="">
-				<option selected>Selecciona una moneda</option>
-				<option value="1">Nacional</option>
-				<option value="2">Extranjera</option>
-			</select><br>
-			<br> <label for="icartera" style="margin-left:39% ;" >Estructura de cartera al:</label> <input
-				id="icartera" type="date" name="cartera" Style="margin-right:5px auto;">
-		</form>
-
-		
-		<table >
-                <thead>
-                    <tr>
-                        <th>Tipo de valor</th>
-                        <th>Emisor</th>
-                        <th>Garantia</th>
-                        <th>ValorizaMN</th>
-                        <th>ValorizaME</th>
-                    </tr>
-                </thead>
-                <tfoot>
-                    <tr>
-                        <th colspan="5" scope="col">total</th>
-                    </tr>
-                </tfoot>
-                <tbody>
-                    <tr>
-                        <td scope="col"></td>
-                        <td scope="col"></td>
-                        <td scope="col"></td>
-                        <td scope="col"></td>
-                        <td scope="col"></td>
-                    </tr>
-                </tbody>
-            </table>
-
+<body class="main">
+	<div class="pos-f-t">
+		<div class="collapse" id="navbarToggleExternalContent">
+			<div class="bg p-4">
+				<h4 class="text-white">Collapsed content</h4>
+				<span class="text-muted">Toggleable via the navbar brand.</span>
+			</div>
 		</div>
-	
+		<nav class="navbar navbar-dark bg">
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarToggleExternalContent"
+				aria-controls="navbarToggleExternalContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+		</nav>
+	</div>
+	<section class="formulario">
+		<div class="titulo">
+			<h1>Estructura de cartera</h1>
+		</div>
+
+		<form class="formulario-div" th:action="@{/registro/agregarValor}"
+			th:object="${valor}" method="post">
+			<br>
+			<div class="linea1">
+				<div class="campo">
+					<label for="cliente">Cliente</label> <input type="text"
+						class="form-control" id="nombre">
+				</div>
+				<div class="campo">
+					<label for="nombre">Moneda</label>
+					<div class="form-group">
+						<select id="tipoMoneda" th:field="*{tipoMoneda.CTipoMoneda}" class="form-control">
+						
+							<option th:each="moneda : ${monedas}"
+									th:value="${moneda.CTipoMoneda}" 
+									th:text="${moneda.NTipoMoneda}"
+									th:selected="(${moneda.CTipoMoneda} == *{tipoMoneda.CTipoMoneda})"></option>
+						</select>
+					</div>
+				</div>
+				</div>
+			<div class="linea2">
+				<div class="campo2">
+					<label for="nombre">Estructura de cartera al:</label> <input
+						type="date" class="form-control" id="cartera">
+
+					<div class="button-add campo">
+						<button type="submit" class="btn btn-success">Agregar</button>
+					</div>
+				</div>
+			</div>
+
+			<div class="tabla">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Tipo de valor</th>
+							<th>Emisor</th>
+							<th>Garantia</th>
+							<th>ValorizaMN</th>
+							<th>ValorizaME</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</form>
+	</section>
 
 
 	<script src="@{/js/bootstrap.bundle.min.js}"></script>

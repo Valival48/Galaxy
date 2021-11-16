@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Estructura de cartera!</title>
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+<link th:href="@{/css/normalize.css}" rel="stylesheet">
+<link th:href="@{/css/styles_rv.css}" rel="stylesheet">
+
+
+</head>
+<body class="main">
+	<div class="pos-f-t">
+		<div class="collapse" id="navbarToggleExternalContent">
+			<div class="bg p-4">
+				<h4 class="text-white">Collapsed content</h4>
+				<span class="text-muted">Toggleable via the navbar brand.</span>
+			</div>
+		</div>
+		<nav class="navbar navbar-dark bg">
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarToggleExternalContent"
+				aria-controls="navbarToggleExternalContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+		</nav>
+	</div>
+	<section class="formulario" >
+		<div class="titulo">
+			<h1>Estructura de cartera</h1>
+		</div>
+
+		<form class="formulario-div" th:action="@{/cartera}" th:object="${valor}" method="post">
+			<br>
+			<div class="linea1">
+				<div class="campo">
+					<label for="cliente">Cliente</label> <input type="text"
+						class="form-control" id="nombre">
+				</div>
+				<div class="campo">
+					<label for="nombre">Moneda</label>
+					<div class="form-group">
+						<select id="tipoMoneda"  class="form-control">
+						
+							<option th:each="moneda : ${monedas}"
+									th:value="${moneda.CTipoMoneda}" 
+									th:text="${moneda.NTipoMoneda}"
+									th:selected="(${moneda.CTipoMoneda} == *{tipoMoneda.CTipoMoneda})"></option>
+						</select>
+					</div>
+				</div>
+				</div>
+			<div class="linea2">
+				<div class="campo2">
+					<label for="nombre">Estructura de cartera al:</label> <input
+						type="date" class="form-control" id="cartera">
+
+					<div class="button-add campo">
+						<button type="submit" class="btn btn-success">Agregar</button>
+					</div>
+				</div>
+			</div>
+
+			<div class="tabla">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Tipo de valor</th>
+							<th>Emisor</th>
+							<th>Garantia</th>
+							<th>ValorizaMN</th>
+							<th>ValorizaME</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</form>
+	</section>
+
+
+	<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

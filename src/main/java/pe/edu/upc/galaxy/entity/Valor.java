@@ -5,9 +5,8 @@ import javax.validation.constraints.Size;
 
 import org.springframework.lang.Nullable;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
+
 
 @Entity
 @Table(name = "valores")
@@ -15,11 +14,8 @@ public class Valor {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "CValor")
     private Integer id;
-
-    @Column(name = "nombre_cliente")
-    @Size(max = 50)
-    private String nombreCliente;
 
     @Column(name = "nombre_emisor")
     @Size(max = 50)
@@ -28,6 +24,8 @@ public class Valor {
     @Column(name = "tipo_valor")
     private String tipo;
     
+    @Column(name = "MGarantia",nullable = true)
+	private double garantia;
     
     @Column(nullable = false, name = "fecha_emision")
     @Temporal(TemporalType.DATE)
@@ -50,21 +48,29 @@ public class Valor {
     @Column(name="descripcion",nullable = true)
     private String descripcion;
 
-   
-    @Column(nullable = false, name = "tipo_moneda")
-    private Boolean tipoMoneda;
 
+    @Column(name="retencion")
+    private Integer retencion;
+    
     @Size(max = 50)
     @Column(name="direccion",nullable = true)
     private String direccion;
-    
-    @OneToMany(mappedBy = "valor", fetch = FetchType.LAZY)
-	private List<Cartera> carteras;
-    
         
+    @ManyToOne
+    @JoinColumn(name = "CCartera",nullable = false)
+    private Cartera cartera;
+    
+    @ManyToOne
+	@JoinColumn(name = "CTipoMoneda", nullable = false)
+	private TipoMoneda tipoMoneda; 
+    
+    @ManyToOne
+	@JoinColumn(name = "CCliente", nullable = false)
+	private Cliente cliente;
+    
+   
 	public Valor() {
 		super();
-		carteras = new ArrayList<Cartera>();
 	}
 
 	public Integer getId() {
@@ -75,13 +81,6 @@ public class Valor {
 		this.id = id;
 	}
 
-	public String getNombreCliente() {
-		return nombreCliente;
-	}
-
-	public void setNombreCliente(String nombreCliente) {
-		this.nombreCliente = nombreCliente;
-	}
 
 	public String getNombreEmisor() {
 		return nombreEmisor;
@@ -139,14 +138,13 @@ public class Valor {
 		this.descripcion = descripcion;
 	}
 
-	public Boolean getTipoMoneda() {
+	public TipoMoneda getTipoMoneda() {
 		return tipoMoneda;
 	}
 
-	public void setTipoMoneda(Boolean tipoMoneda) {
+	public void setTipoMoneda(TipoMoneda tipoMoneda) {
 		this.tipoMoneda = tipoMoneda;
 	}
-
 	public String getDireccion() {
 		return direccion;
 	}
@@ -155,16 +153,39 @@ public class Valor {
 		this.direccion = direccion;
 	}
 
-	public List<Cartera> getCarteras() {
-		return carteras;
+	public double getGarantia() {
+		return garantia;
 	}
 
-	public void setCarteras(List<Cartera> carteras) {
-		this.carteras = carteras;
+	public void setGarantia(double garantia) {
+		this.garantia = garantia;
 	}
-    
 
-   
+	public Integer getRetencion() {
+		return retencion;
+	}
+
+	public void setRetencion(Integer retencion) {
+		this.retencion = retencion;
+	}
+
+	public Cartera getCartera() {
+		return cartera;
+	}
+
+	public void setCartera(Cartera cartera) {
+		this.cartera = cartera;
+	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
+	 
 
   
 }

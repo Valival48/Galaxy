@@ -32,111 +32,120 @@
 		</div>
 		<form class="formulario-div" th:action="@{/registro/saveValor}" th:object="${valor}" method="post" >
 			<br>
-			<div class="mb-3 row">
-				<div class="col-md-1">
-					<label for="cliente" class="col-sm-1">Cliente</label>
+			<div class="linea1">
+				<div class="campo">
+					<label for="nombre">Cliente</label>
+					<div class="form-group">
+						<select id="cliente" th:field="*{cliente.id}" class="form-control">
+						
+							<option th:each="cliente : ${clientes}"
+									th:value="${cliente.id}" 
+									th:text="${cliente.name}"
+									th:selected="(${cliente.id} == *{cliente.id})"></option>
+						</select>
+					</div>
 				</div>
-				<div class="col-md-2">
-					<input type="text" class="form-control" id="nombre" th:field="*{nombreCliente}">
+				<div class="campo">
+					<label for="nombre">Importe</label> <input type="text"
+						class="form-control" id="importe" th:field="*{importe}">
 				</div>
-				<div class="col-md-2">
-					<label for="fechaEmision" class="col-sm-5">Fecha Emision</label>
+				<div class="campo">
+					<label for="fechaEmision">Fecha Emision</label> <input type="text"
+						class="form-control" id="fechaEmision" th:field="*{fechaEmision}">
 				</div>
-				<div class="col-md-2">
-					<input type="text" class="form-control" id="fechaEmision" th:field="*{fechaEmision}">
+			</div>
+
+			<div class="linea1">
+				<div class="campo">
+					<label for="nombre">Emisor</label> <input type="text"
+						class="form-control" id="emisor" th:field="*{nombreEmisor}">
 				</div>
-				<div class="button-add col-md-2">
+				<div class="campo">
+					<label for="nombre">Descripcion</label> <input type="text"
+						class="form-control" id="descripcion" th:field="*{descripcion}">
+				</div>
+				<div class="campo">
+					<label for="nombre">Fecha Vencimiento</label> <input type="text"
+						class="form-control" id="fechaVencimiento"
+						th:field="*{fechaVencimiento}">
+				</div>
+			</div>
+
+			<div class="linea2">
+
+				<div class="campo">
+					<label for="nombre">Status</label>
+					<div class="form-group">
+						<select id="status" class="form-control" th:field="*{status}">
+							<option value="">selected</option>
+							<option value="Por cobrar">Por cobrar</option>
+							<option value="Pagada">Pagada</option>
+						</select>
+					</div>
+				</div>
+				<div class="campo">
+					<label for="nombre">Moneda</label>
+					<div class="form-group">
+						<select id="tipoMoneda" th:field="*{tipoMoneda.CTipoMoneda}" class="form-control">
+						
+							<option th:each="moneda : ${monedas}"
+									th:value="${moneda.CTipoMoneda}" 
+									th:text="${moneda.NTipoMoneda}"
+									th:selected="(${moneda.CTipoMoneda} == *{tipoMoneda.CTipoMoneda})"></option>
+
+
+						</select>
+					</div>
+				</div>
+				<div class="campo">
+					<label for="nombre">Tipo de Valor</label>
+					<div>
+						<select id="tipoDeValor" class="form-control" th:field="*{tipo}">
+							<option value="">selected</option>
+							<option value="Factura">Factura</option>
+							<option value="Letra">Letra</option>
+							<option value="R.honorarios">R. Honorarios</option>
+						</select>
+					</div>
+				</div>
+				<div class="button-add campo">
 					<button type="submit" class="btn btn-success">Agregar</button>
 				</div>
-				</div>
-					<br>
-					<div class="mb-3 row">
-						<div class="col-md-1">
-							<label for="nombre" class="col-sm-1">Emisor</label>
-						</div>
-						<div class="col-md-2">
-							<input type="text" class="form-control" id="emisor" th:field="*{nombreEmisor}">
-						</div>
-						<div class="col-md-2">
-							<label for="nombre" class="col-sm-6">Fecha Vencimiento</label>
-						</div>
-						<div class="col-md-2">
-							<input type="text" class="form-control" id="fechaVencimiento" th:field="*{fechaVencimiento}">
-						</div>
-						</div>
-							<br>
-							<div class="mb-3 row">
-								<div class="col-md-1">
-									<label for="nombre" class="col-sm-1">Importe</label>
-								</div>
-								<div class="col-md-2">
-									<input type="number" class="form-control" id="importe" th:field="*{importe}">
-								</div>
-								<div class="col-md-1">
-									<label for="nombre" class="col-sm-1">Status</label>
-								</div>
-								<div class="col-md-2">
-									<div class="form-group col-md-10">
-										<select id="status" class="form-control" th:field="*{status}">				
-											<option value=1>Por cobrar</option>
-											<option value=2>Pagada</option>
-										</select>
-									</div>
-								</div>
-								<div class="col-md-1">
-									<label for="nombre" class="col-sm-1">Moneda</label>
-								</div>
-								<div class="col-md-1">
-									<div class="form-group col-md-10">
-										<select id="moneda" class="form-control" th:field="*{tipoMoneda}">
-											<option value=1>USD($)</option>
-											<option value=0>PEN(S/)</option>								
-										</select>
-									</div>
-								</div>
-								<div class="col-md-1">
-									<label for="nombre" class="col-sm-10">Tipo de Valor</label>
-								</div>
-								<div class="col-md-2">
-									<select id="tipoDeValor" class="form-control" th:field="*{tipo}">
-									
-										<option value=1>Factura</option>
-										<option value=2>Letra</option>
-										<option value=3>R.honorarios</option>
-									</select>
-								</div>
-								<br> <br> <br>
-								<div  >
-									<table class="table">
-										<thead>
-											<tr>
-												<th>Cliente</th>
-												<th>Valor</th>
-												<th>Emisor</th>
-												<th>F.Emision</th>
-												<th>F.Vencimiento</th>
-												<th>Importe</th>
-												<th>Moneda</th>
-												<th>Status</th>
-											</tr>
-										</thead>
-										<tbody >
-                                          <tr th:each="valor : ${valor}" >
-                                            <td><h6 th:text= "${valor.nombreCliente}"></h6></td>
-                                            <td><h6 th:text= "${valor.tipo}"></h6></td>
-                                            <td><h6 th:text= "${valor.nombreEmisor}"></h6></td>
-                                            <td><h6 th:text= "${valor.fechaEmision}"></h6></td>
-                                            <td><h6 th:text= "${valor.fechaVencimiento}"></h6></td>
-                                            <td><h6 th:text= "${valor.importe}"></h6></td>
-                                            <td><h6 th:text= "${valor.tipoMoneda}"></h6></td>
-                                            <td><h6 th:text= "${valor.status}"></h6></td>
+			</div>
 
-                                          </tr>
-                                        </tbody>
-									</table>
-								</div>
-								</div>
-							</form>
+			<div class="tabla">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Cliente</th>
+							<th>Valor</th>
+							<th>Descripcion</th>
+							<th>Emisor</th>
+							<th>F.Emision</th>
+							<th>F.Vencimiento</th>
+							<th>Importe</th>
+							<th>Moneda</th>
+							<th>Status</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="valor : ${valores}">
+							<th th:text="${valor.nombreCliente}"></th>
+							<th th:text="${valor.tipo}"></th>
+							<th th:text="${valor.descripcion}"></th>
+							<th th:text="${valor.nombreEmisor}"></th>
+							<th th:text="${valor.fechaEmision}"></th>
+							<th th:text="${valor.fechaVencimiento}"></th>
+							<th th:text="${valor.importe}"></th>
+							<th th:text="${valor.tipoMoneda.NTipoMoneda}"></th>
+							<th th:text="${valor.status}"></th>
+
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+		</form>
 	</section>
 	<script th:src="@{js/bootstrap.bundle.min.js}"></script>
 </body>

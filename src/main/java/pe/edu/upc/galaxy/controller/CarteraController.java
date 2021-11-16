@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import pe.edu.upc.galaxy.business.CarteraService;
+
 import pe.edu.upc.galaxy.business.TipoMonedaService;
 import pe.edu.upc.galaxy.business.ValorService;
 import pe.edu.upc.galaxy.entity.Valor;
@@ -20,9 +20,6 @@ import pe.edu.upc.galaxy.entity.Valor;
 public class CarteraController {
 	@Autowired
 	private ValorService valorService;
-	
-	@Autowired
-	private CarteraService carteraService;
 	
 	@Autowired
 	private TipoMonedaService tipoMonedaService;

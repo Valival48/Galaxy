@@ -130,7 +130,7 @@
 					</thead>
 					<tbody>
 						<tr th:each="valor : ${valores}">
-							<th th:text="${valor.nombreCliente}"></th>
+							<th th:text="${valor.cliente.name}"></th>
 							<th th:text="${valor.tipo}"></th>
 							<th th:text="${valor.descripcion}"></th>
 							<th th:text="${valor.nombreEmisor}"></th>

@@ -43,12 +43,12 @@
 				<div class="campo">
 					<label for="nombre">Moneda</label>
 					<div class="form-group">
-						<select id="tipoMoneda"  class="form-control">
+						<select id="tipoMoneda" th:field="*{tipoMoneda.CTipoMoneda}" class="form-control">
 						
 							<option th:each="moneda : ${monedas}"
 									th:value="${moneda.CTipoMoneda}" 
 									th:text="${moneda.NTipoMoneda}"
-									th:selected="(${moneda.CTipoMoneda} == *{tipoMoneda.CTipoMoneda})"></option>
+									></option>
 						</select>
 					</div>
 				</div>

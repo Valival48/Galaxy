@@ -4,14 +4,42 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>xd</title>
+<title>Galaxy</title>
+
 <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
-<link th:href="@{/css/styles_rv.css}" rel="stylesheet" >
+<link th:href="@{/css/menu.css}" rel="stylesheet">
 
 </head>
-<body >
-		<main>
-		<a th:href="@{/registro/newValor}" class="btn btn-success">New Valor</a>
-		</main>
+<body>
+
+	<header class="contenedor">
+		<h1>Galaxy</h1>
+		<h2>Bienvenido, ¿Qué desea hacer?</h2>
+	</header>
+
+	<main >
+		<div id="fila" class="contenedor">
+			<div class="enlace b">
+				<a th:href="@{/registro/newValor}" type="button" class="bigBotton">Registrar valor</a>
+			</div>
+			<div class="enlace b">
+				<a th:href="@{/registro/newValor}" type="button" class="bigBotton">Movimientos</a>
+			</div>
+		</div>
+
+		<div id="fila" class="contenedor">
+			<div class="enlace b">
+				<a th:href="@{/registro/newValor}" type="button" class="bigBotton">Descuentos</a>
+			</div>
+			<div class="enlace b">
+				<a th:href="@{/registro/newValor}" type="button" class="bigBotton">Estructura de cartera</a>
+			</div>
+
+
+		</div>
+
+	</main>
+
+	
 </body>
 </html>

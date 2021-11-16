@@ -54,11 +54,25 @@ public class Valor {
     
     @Size(max = 50)
     @Column(name="direccion",nullable = true)
-    private String direccion;
-        
-    @ManyToOne
-    @JoinColumn(name = "CCartera",nullable = false)
-    private Cartera cartera;
+    private String direccion;      
+   
+
+
+	@Column(name = "Tipo_calendario", nullable =true)
+	private String calendario;
+	
+	@Column(name = "Cargo" , nullable =true)
+	private double cargo;
+
+	@Column(name = "DDescuento" , nullable =true)
+	@Temporal(TemporalType.DATE)
+	private Date fechaDescuento;
+
+	@Column(name = "Tipo_Cambio",nullable =true)
+	private String tipoCambio;
+
+	@Column(name = "valor_nominal" , nullable =true)
+	private double valorNominal;
     
     @ManyToOne
 	@JoinColumn(name = "CTipoMoneda", nullable = false)
@@ -68,7 +82,10 @@ public class Valor {
 	@JoinColumn(name = "CCliente", nullable = false)
 	private Cliente cliente;
     
-   
+    @ManyToOne
+	@JoinColumn(name = "CTasa", nullable = true)
+	private Tasa tasa;
+    
 	public Valor() {
 		super();
 	}
@@ -169,13 +186,6 @@ public class Valor {
 		this.retencion = retencion;
 	}
 
-	public Cartera getCartera() {
-		return cartera;
-	}
-
-	public void setCartera(Cartera cartera) {
-		this.cartera = cartera;
-	}
 
 	public Cliente getCliente() {
 		return cliente;

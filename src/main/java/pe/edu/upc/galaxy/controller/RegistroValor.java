@@ -14,11 +14,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import pe.edu.upc.galaxy.business.CarteraService;
+
 import pe.edu.upc.galaxy.business.ClienteService;
 import pe.edu.upc.galaxy.business.TipoMonedaService;
 import pe.edu.upc.galaxy.business.ValorService;
-import pe.edu.upc.galaxy.entity.Cartera;
+
 import pe.edu.upc.galaxy.entity.TipoMoneda;
 import pe.edu.upc.galaxy.entity.Valor;
 
@@ -35,8 +35,7 @@ public class RegistroValor {
 	@Autowired
 	private ClienteService clienteService;
 	
-	@Autowired
-	private CarteraService carteraService;
+	
 
 	@GetMapping("newValor")
 	public String newValor(Model model) {

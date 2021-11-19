@@ -16,8 +16,10 @@ public class PrincipalController {
 	public String home2() {
 		return "Movimiento_comitentes";
 	}
-	
-	
+	@GetMapping("new")
+	public String home4() {
+		return "menu";
+	}
 	@GetMapping("monto")
 	public String monto() {
 		return "MontoExtranjero";

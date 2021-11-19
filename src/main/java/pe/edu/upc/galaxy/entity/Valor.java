@@ -4,6 +4,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Size;
 
 import org.springframework.lang.Nullable;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -50,9 +51,8 @@ public class Valor {
     private String descripcion;
 
    
-    @ManyToOne
-	@JoinColumn(name = "CTipoMoneda", nullable = false)
-	private TipoMoneda tipoMoneda; 
+    @Column(nullable = false, name = "tipo_moneda")
+    private Boolean tipoMoneda;
 
     @Size(max = 50)
     @Column(name="direccion",nullable = true)
@@ -139,11 +139,11 @@ public class Valor {
 		this.descripcion = descripcion;
 	}
 
-	public TipoMoneda getTipoMoneda() {
+	public Boolean getTipoMoneda() {
 		return tipoMoneda;
 	}
 
-	public void setTipoMoneda(TipoMoneda tipoMoneda) {
+	public void setTipoMoneda(Boolean tipoMoneda) {
 		this.tipoMoneda = tipoMoneda;
 	}
 
@@ -163,6 +163,7 @@ public class Valor {
 		this.carteras = carteras;
 	}
     
+
    
 
   

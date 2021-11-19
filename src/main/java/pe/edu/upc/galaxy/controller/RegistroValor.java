@@ -40,11 +40,12 @@ public class RegistroValor {
 	@GetMapping("newValor")
 	public String newValor(Model model) {
 		try {
-			
+			List<TipoMoneda> monedas= tipoMonedaService.getAll();
 			List<Valor> valores = valorService.getAll();
-			model.addAttribute("monedas",tipoMonedaService.listAllMoneda());
+		/*	model.addAttribute("monedas",tipoMonedaService.listAllMoneda());*/
 			model.addAttribute("clientes",clienteService.listClientes());
 			model.addAttribute("valores", valores);
+			model.addAttribute("monedas", monedas);
 			
 			model.addAttribute("valor",new Valor());
 			

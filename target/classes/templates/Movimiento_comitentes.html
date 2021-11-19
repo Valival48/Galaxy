@@ -7,58 +7,63 @@
 
 <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
 <link th:href="@{/css/estilo.css}" rel="stylesheet">
+<head>
+<meta charset="utf-8">
+<title>Movimiento de comitentes</title>
+</head>
+<body>
+	<h1>Movimiento de comitentes</h1>
 
-    <head>
-      <meta charset="utf-8">
-      <title>Movimiento de comitentes</title>  
-    </head>
-    <body>
-        <h1> Movimiento de comitentes</h1>
+	<div class="linea1">
+		<div class="campo">
+			<label for="nombre">Cliente</label>
+			<div class="form-group">
+				<select id="cliente" th:field="*{cliente.id}" class="form-control">
 
-        <div id="container">
-        
-        <p> Señor/es: Vladimir Guzmán</p>
-        <p>Av. Miraflores 898 - Los Biomas</p>
-        <p>Lima</p><br>
-        
-         <form>
-            <label>Tipo de cambio</label>
-            <input type="text">
-        </form><br>
+					<option th:each="cliente : ${clientes}" th:value="${cliente.id}"
+						th:text="${cliente.name}"
+						th:selected="(${cliente.id} == *{cliente.id})"></option>
+				</select>
+			</div>
+		</div>
+	</div>
 
-        <form>
-            <label>Movimiento de comitentes</label>
-            <input type="date">
-            <label>Al</label>
-            <input type="date">
-            <input type="submit" class="botonxd" value="Mostrar" >
-        </form>
-         <p>Moneda Nacional</p>
-         <table >
-             <tr class="primerafila">
-                 <th>Fecha</th>
-                 <th>Valor</th>
-                 <th>Emisor</th>
-                 <th>Cargo</th>
-                 <th>Saldo</th>
-             </tr>
-             <tr>
-                 <td>XXXX</td>
-                 <td>XXXX</td>
-                 <td>XXXX</td>
-                 <td>XXXX</td>
-                 <td>XXXX</td>
-             </tr>
-              <tr>
-                 <td>XXXX</td>
-                 <td>XXXX</td>
-                 <td>XXXX</td>
-                 <td>XXXX</td>
-                 <td>XXXX</td>
-             </tr>
-         </table>
-        </div>
+	<form>
+		<label>Tipo de cambio</label> <input type="text">
+	</form>
+	<br>
+
+	<form>
+		<label>Movimiento de comitentes</label> <input type="date"> <label>Al</label>
+		<input type="date"> <input type="submit" class="botonxd"
+			value="Mostrar">
+	</form>
+	<p>Moneda Nacional</p>
+	<table>
+		<tr class="primerafila">
+			<th>Fecha</th>
+			<th>Valor</th>
+			<th>Emisor</th>
+			<th>Cargo</th>
+			<th>Abono</th>
+		</tr>
+		<tr>
+			<td>XXXX</td>
+			<td>XXXX</td>
+			<td>XXXX</td>
+			<td>XXXX</td>
+			<td>XXXX</td>
+		</tr>
+		<tr>
+			<td>XXXX</td>
+			<td>XXXX</td>
+			<td>XXXX</td>
+			<td>XXXX</td>
+			<td>XXXX</td>
+		</tr>
+	</table>
 
 
-    </body>
+
+</body>
 </html>

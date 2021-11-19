@@ -33,25 +33,54 @@
 			<h1>Estructura de cartera</h1>
 		</div>
 
-		<form class="formulario-div" th:action="@{/cartera}" th:object="${valor}" method="post">
+		<form class="formulario-div" th:action="@{/cartera}" th:object="${valor}" method="get" >
 			<br>
 			<div class="linea1">
 				<div class="campo">
-					<label for="cliente">Cliente</label> <input type="text"
-						class="form-control" id="nombre">
-				</div>
-				<div class="campo">
-					<label for="nombre">Moneda</label>
+					<label for="nombre">Cliente</label>
 					<div class="form-group">
-						<select id="tipoMoneda" th:field="*{tipoMoneda.CTipoMoneda}" class="form-control">
+						<select id="cliente" th:field="*{cliente.id}" class="form-control">
 						
-							<option th:each="moneda : ${monedas}"
-									th:value="${moneda.CTipoMoneda}" 
-									th:text="${moneda.NTipoMoneda}"
-									></option>
+							<option th:each="cliente : ${clientes}"
+									th:value="${cliente.id}" 
+									th:text="${cliente.name}"
+									th:selected="(${cliente.id} == *{cliente.id})"></option>
 						</select>
 					</div>
 				</div>
+			<!--  	<div class="campo">
+					<label for="nombre">Moneda</label>
+					<div class="form-group">
+					 <select   id="tipoMoneda" th:field="*{tipoMoneda.CTipoMoneda}" class="form-control">
+							<option th:each="moneda : ${monedas}"
+									th:value="${moneda.CTipoMoneda}" 
+									th:text="${moneda.NTipoMoneda}"
+									th:selected="(${moneda.CTipoMoneda} == *{tipoMoneda.CTipoMoneda})"></option>
+						</select>
+					</div>
+				</div> -->
+				
+				<div class="campo">
+					<label for="nombre">Moneda</label>
+					<div class="form-group">
+					 <select   id="tipoMoneda" th:field="*{tipoMoneda.CTipoMoneda}" class="form-control">
+							<option value="1001">PEN</option>
+							<option value="1002">USD</option>
+						</select>
+					</div>
+				</div>
+				
+				  <script type="text/javascript">
+            function update() {
+                var select = document.getElementById('tipoMoneda');
+                var option = select.options[select.selectedIndex];
+
+                document.getElementById('value').value = option.value;
+               
+            }
+            update();
+        </script>
+				
 				</div>
 			<div class="linea2">
 				<div class="campo2">
@@ -59,12 +88,14 @@
 						type="date" class="form-control" id="cartera">
 
 					<div class="button-add campo">
-						<button type="submit" class="btn btn-success">Agregar</button>
+						<button type="submit" class="btn btn-success">Listar</button>
 					</div>
 				</div>
 			</div>
-
-			<div class="tabla">
+			
+			
+			<div class="tabla" >
+			
 				<table class="table">
 					<thead>
 						<tr>
@@ -74,16 +105,52 @@
 							<th>ValorizaMN</th>
 							<th>ValorizaME</th>
 						</tr>
+						
 					</thead>
+					
 					<tbody>
-						<tr>
-
-						</tr>
+						<tr>					
+						<tr th:each="valor : ${valores}" th:if="${valor.tipoMoneda.CTipoMoneda=='1001'}" th:onchange=" update()" >
+							<th th:text="${valor.tipo}"></th>
+							<th th:text="${valor.nombreEmisor}"></th>
+							<th th:text="${valor.garantia}"></th>
+							<th th:text="${valor.importe}"></th>
+							<th th:text="${valor.importe}/4.1"></th>
+						</tr>	
 					</tbody>
+					
 				</table>
-			</div>
+				</div>
+					<div class="tabla">
+			
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Tipo de valor</th>
+							<th>Emisor</th>
+							<th>Garantia</th>
+							<th>ValorizaMN</th>
+							<th>ValorizaME</th>
+						</tr>
+						
+					</thead>
+					
+					<tbody>
+						<tr>					
+						<tr th:each="valor : ${valores}" th:if="${valor.tipoMoneda.CTipoMoneda=='1001'}" th:onchange=" update()">
+							<th th:text="${valor.tipo}"></th>
+							<th th:text="${valor.nombreEmisor}"></th>
+							<th th:text="${valor.garantia}"></th>
+							<th th:text="${valor.importe}*4.1"></th>
+							<th th:text="${valor.importe}"></th>
+						</tr>	
+					</tbody>
+					
+				</table>
+				</div>
 		</form>
 	</section>
+
 
 
 	<script th:src="@{/js/bootstrap.bundle.min.js}"></script>

@@ -7,9 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.SessionAttributes;
 
 import pe.edu.upc.galaxy.business.ClienteService;
 import pe.edu.upc.galaxy.business.TipoMonedaService;
@@ -18,35 +16,31 @@ import pe.edu.upc.galaxy.entity.TipoMoneda;
 import pe.edu.upc.galaxy.entity.Valor;
 
 @Controller
-@RequestMapping("/cartera")
-@SessionAttributes("{valor}")
-public class CarteraController {
+@RequestMapping("/descuento")
+public class DescuentoController {
+
+	@Autowired
+	private ClienteService clienteService;
+	
 	@Autowired
 	private ValorService valorService;
 	
 	@Autowired
 	private TipoMonedaService tipoMonedaService;
 	
-	@Autowired
-	private ClienteService clienteService;
-	
 	@GetMapping
-	public String list(Model model, @ModelAttribute("valor") Valor valor) {
-		
+	public String descuento(Model model,@ModelAttribute("valor") Valor valor) {
 		try {
 			List<TipoMoneda> monedas= tipoMonedaService.getAll();
 			List<Valor> valores = valorService.getAll();
-			model.addAttribute("monedas",tipoMonedaService.listAllMoneda());
 			model.addAttribute("valores", valores);
-			model.addAttribute("monedas", monedas);
 			model.addAttribute("clientes",clienteService.listClientes());
+			model.addAttribute("monedas", monedas);
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.err.println(e.getMessage());
 		}
 		
-		return "cartera/Estructura_cartera";
+		return "Descuentos";
 	}
-	
-	
 }

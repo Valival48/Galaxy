@@ -54,10 +54,11 @@ public class Valor {
     
     @Size(max = 50)
     @Column(name="direccion",nullable = true)
-    private String direccion;      
+    private String direccion;  
+    
+	@Column(name = "DDia" , nullable =true)
+	private Integer dia;
    
-
-
 	@Column(name = "Tipo_calendario", nullable =true)
 	private String calendario;
 	

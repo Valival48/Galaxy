@@ -1,5 +1,6 @@
 package pe.edu.upc.galaxy.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
@@ -12,31 +13,25 @@ public class Cliente {
 
     @Id 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="CCliente")
     private Integer id;
     
     @Column(name="NCliente", length =50,  nullable=false)
     private String name;
-
-    @Column(name="TCorreo", length =50,  nullable=false)
-    private String email;
     
     @OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY)
-	private List<Cartera> carteras;
+	private List<Valor> valores;
 
-    public Cliente() {}
-
-    public Cliente(String name, String email) {
-        this.name = name;
-        this.email = email;
+    public Cliente() {
+    	super();
+		valores = new ArrayList<Valor>();
     }
+
 
     public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
@@ -46,11 +41,23 @@ public class Cliente {
         this.name = name;
     }
 
-    public String getEmail() {
-        return email;
-    }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	public List<Valor> getValores() {
+		return valores;
+	}
+
+
+	public void setValores(List<Valor> valores) {
+		this.valores = valores;
+	}
+
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+
+
+
+  
 }

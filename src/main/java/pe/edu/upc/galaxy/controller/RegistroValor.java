@@ -14,7 +14,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+
+import pe.edu.upc.galaxy.business.ClienteService;
+import pe.edu.upc.galaxy.business.TipoMonedaService;
 import pe.edu.upc.galaxy.business.ValorService;
+
+import pe.edu.upc.galaxy.entity.TipoMoneda;
 import pe.edu.upc.galaxy.entity.Valor;
 
 @Controller
@@ -23,22 +28,24 @@ import pe.edu.upc.galaxy.entity.Valor;
 public class RegistroValor {
 	@Autowired
 	private ValorService valorService;
-
-	@GetMapping
-	public String list(Model model) {
-		try {
-			List<Valor> valores = valorService.getAll();
-			model.addAttribute("valor", valores);
-		} catch (Exception e) {
-
-			e.printStackTrace();
-		}
-		return "registro/newValor";
-	}
+	
+	@Autowired
+	private TipoMonedaService tipoMonedaService;
+	
+	@Autowired
+	private ClienteService clienteService;
+	
+	
 
 	@GetMapping("newValor")
 	public String newValor(Model model) {
 		try {
+			
+			List<Valor> valores = valorService.getAll();
+			model.addAttribute("monedas",tipoMonedaService.listAllMoneda());
+			model.addAttribute("clientes",clienteService.listClientes());
+			model.addAttribute("valores", valores);
+			
 			model.addAttribute("valor",new Valor());
 			
 		} catch (Exception e) {

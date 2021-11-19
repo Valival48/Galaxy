@@ -10,7 +10,7 @@ public class PrincipalController {
 
 	@GetMapping
 	public String home() {
-		return "Estructura_cartera";
+		return "menu";
 	}
 	@GetMapping("inicio")
 	public String home2() {

@@ -1,0 +1,124 @@
+h1{
+    color: #6064DF;
+    margin-left: 90px;
+    font-family: Poppins;
+}
+
+label{
+    margin-left: 30px;
+    color: #707070;
+    font-family: Poppins;
+}
+#container{
+    width: 1200px;
+    height: 700px;
+    margin: 0px auto;
+    border: 1px solid transparent;
+    font-family: Poppins;
+    background-color: white;
+}
+#container2{
+    width: 320px;
+    height: 280px;
+    margin-left: 0px;
+    margin-top: -50px;
+    font-family: Poppins;
+    background-color: white;
+}
+#containerxd{
+    width: 300px;
+    height: 220px;
+    border: 1px solid black;
+    margin-left: 1040px;
+    margin-top: -210px;
+    font-family: Poppins;
+    background-color: white;
+}
+.botonxd{
+    background-color: #6064DF;
+    border-radius: 10px;
+    color: white;
+    font-family: Poppins;
+    width: 100px;
+    height: 30px;
+}
+.primerafila{
+    background-color: #E0E0E0;
+    font-family: Poppins;
+}
+body{
+    background-color: #CFC6F5;
+}
+table{
+    margin-left: 30px;
+
+}
+.Tabla2{
+margin-left: 590px;
+margin-top: -200px;
+background-color: #E0E0E0;
+}
+.costeanualxd{
+    margin-left: 20px;
+}
+.btn-outline-primary{
+    margin-left: 45px;
+    margin-top: 5px;
+    background-color: #6064DF;
+    color: white;
+    border-radius: 8px;
+}
+.btn-salir{
+margin-top: 20px;
+margin-left: 120px;
+width: 60px;
+height: 30px;
+}
+tr,th{
+padding-right: 20px;
+padding-left: 20px;
+    font-size: 15px;
+
+}
+form{
+    margin-left: 65px;
+}
+#aeaxd{
+    margin-left: 130px;
+}
+#plazadecapitalizacion{
+    margin-left: 170px;
+}
+#titulocapi{
+    margin-left: 170px;
+    margin-top:-75px;
+}
+.mytabs {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 25px;
+}
+.mytabs input[type="radio"] {
+    display: none;
+}
+
+.mytabs .tab {
+    width: 100%;
+    padding: 20px;
+    background: #fff;
+    order: 1;
+    display: none;
+}
+.mytabs .tab h2 {
+    font-size: 3em;
+}
+
+.mytabs input[type='radio']:checked + label + .tab {
+    display: block;
+}
+
+.mytabs input[type="radio"]:checked + label {
+    background: #fff;
+}

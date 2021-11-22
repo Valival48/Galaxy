@@ -31,13 +31,15 @@ public class CarteraController {
 	private ClienteService clienteService;
 	
 	@GetMapping
-	public String list(Model model, @ModelAttribute("valor") Valor valor) {
+	public String list(Model model, @ModelAttribute("valor") Valor valor, @ModelAttribute("valor2") Valor valor2) {
 		
 		try {
 			List<TipoMoneda> monedas= tipoMonedaService.getAll();
-			List<Valor> valores = valorService.getAll();
+			List<Valor> valores = valorService.filterByME();
+			List<Valor> valores2 = valorService.filterByMN();
 			model.addAttribute("monedas",tipoMonedaService.listAllMoneda());
 			model.addAttribute("valores", valores);
+			model.addAttribute("valores2", valores2);
 			model.addAttribute("monedas", monedas);
 			model.addAttribute("clientes",clienteService.listClientes());
 		} catch (Exception e) {

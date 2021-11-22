@@ -64,7 +64,9 @@ public class RegistroValor {
 		}
 
 		try {
-			Valor valorSaved = valorService.create(valor);
+			Valor valorSaved = new Valor ();
+			valor.setDia((int)((valor.getFechaVencimiento().getTime()-valor.getFechaEmision().getTime())/(1000 * 3600 * 24)));
+			valorService.create(valor);
 			model.addAttribute("valor", valorSaved);
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -48,38 +48,7 @@
 						</select>
 					</div>
 				</div>
-			<!--  	<div class="campo">
-					<label for="nombre">Moneda</label>
-					<div class="form-group">
-					 <select   id="tipoMoneda" th:field="*{tipoMoneda.CTipoMoneda}" class="form-control">
-							<option th:each="moneda : ${monedas}"
-									th:value="${moneda.CTipoMoneda}" 
-									th:text="${moneda.NTipoMoneda}"
-									th:selected="(${moneda.CTipoMoneda} == *{tipoMoneda.CTipoMoneda})"></option>
-						</select>
-					</div>
-				</div> -->
-				
-				<div class="campo">
-					<label for="nombre">Moneda</label>
-					<div class="form-group">
-					 <select   id="tipoMoneda" th:field="*{tipoMoneda.CTipoMoneda}" class="form-control">
-							<option value="1001">PEN</option>
-							<option value="1002">USD</option>
-						</select>
-					</div>
-				</div>
-				
-				  <script type="text/javascript">
-            function update() {
-                var select = document.getElementById('tipoMoneda');
-                var option = select.options[select.selectedIndex];
-
-                document.getElementById('value').value = option.value;
-               
-            }
-            update();
-        </script>
+		
 				
 				</div>
 			<div class="linea2">
@@ -110,7 +79,7 @@
 					
 					<tbody>
 						<tr>					
-						<tr th:each="valor : ${valores}" th:if="${valor.tipoMoneda.CTipoMoneda=='1001'}" th:onchange=" update()" >
+						<tr th:each="valor : ${valores}" >
 							<th th:text="${valor.tipo}"></th>
 							<th th:text="${valor.nombreEmisor}"></th>
 							<th th:text="${valor.garantia}"></th>
@@ -137,12 +106,12 @@
 					
 					<tbody>
 						<tr>					
-						<tr th:each="valor : ${valores}" th:if="${valor.tipoMoneda.CTipoMoneda=='1001'}" th:onchange=" update()">
-							<th th:text="${valor.tipo}"></th>
-							<th th:text="${valor.nombreEmisor}"></th>
-							<th th:text="${valor.garantia}"></th>
-							<th th:text="${valor.importe}*4.1"></th>
-							<th th:text="${valor.importe}"></th>
+						<tr th:each="valor2 : ${valores2}" >
+							<th th:text="${valor2.tipo}"></th>
+							<th th:text="${valor2.nombreEmisor}"></th>
+							<th th:text="${valor2.garantia}"></th>
+							<th th:text="${valor2.importe}*4.1"></th>
+							<th th:text="${valor2.importe}"></th>
 						</tr>	
 					</tbody>
 					

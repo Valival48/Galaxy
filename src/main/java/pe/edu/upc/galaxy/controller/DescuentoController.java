@@ -31,6 +31,7 @@ public class DescuentoController {
 	@GetMapping
 	public String descuento(Model model,@ModelAttribute("valor") Valor valor) {
 		try {
+			
 			List<TipoMoneda> monedas= tipoMonedaService.getAll();
 			List<Valor> valores = valorService.getAll();
 			model.addAttribute("valores", valores);

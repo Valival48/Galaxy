@@ -196,6 +196,14 @@ public class Valor {
 		this.cliente = cliente;
 	}
 
+	public Integer getDia() {
+		return dia;
+	}
+
+	public void setDia(Integer dia) {
+		this.dia = dia;
+	}
+
 	 
 
   

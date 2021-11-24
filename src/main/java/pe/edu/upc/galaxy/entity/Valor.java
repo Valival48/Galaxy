@@ -3,9 +3,15 @@ package pe.edu.upc.galaxy.entity;
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.Range;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.lang.Nullable;
 
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.util.Date;
+import java.io.*;
+
 
 
 @Entity
@@ -28,17 +34,19 @@ public class Valor {
 	private double garantia;
     
     @Column(nullable = false, name = "fecha_emision")
-    @Temporal(TemporalType.DATE)
+  /*  @Temporal(TemporalType.DATE)*/
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date fechaEmision;
 
     
     @Column(name = "fecha_vencimiento", nullable = false)
-    @Temporal(TemporalType.DATE)
+   /* @Temporal(TemporalType.DATE)*/
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date fechaVencimiento;
 
     @Column(name="importe",nullable = false)
     private double importe;
-
+    
     @Size(max = 50)
     @Column( name = "status",  nullable = false)
     private String status;
@@ -133,6 +141,7 @@ public class Valor {
 	}
 
 	public double getImporte() {
+	
 		return importe;
 	}
 

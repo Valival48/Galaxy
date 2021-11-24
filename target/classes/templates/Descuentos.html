@@ -6,9 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
-<link th:href="@{/css/style_descuentos.css}" rel="stylesheet">
 <link th:href="@{/css/styles_rv.css}" rel="stylesheet">
-
 <head>
 <meta charset="utf-8">
 <title>Descuentos</title>
@@ -50,6 +48,9 @@
 								th:selected="(${cliente.id} == *{cliente.id})"></option>
 						</select>
 					</div>
+					<div class="button-add campo">
+						<button type="submit" class="btn btn-success">Agregar</button>
+					</div>
 				</div>
 			</div>
 
@@ -87,130 +88,159 @@
 
 							<th th:text="${valor.dia}"></th>
 
-							<th th:text="${valor.importe}/4.1"></th>
+							<th
+								th:text="${#numbers.formatDecimal(valor.importe/4.1,0,'COMMA',2,'POINT')}"></th>
 
-							<th th:text="${valor.importe}*4.1"></th>
+							<th
+								th:text="${#numbers.formatDecimal(valor.importe*4.1,0,'COMMA',2,'POINT')}"></th>
 
+							<th th:text="${valor.importe}"></th>
 
-							<th ><input type="text" style="width: 50px;"
-					class="form-control" id="descripcion" th:field="*{garantia}"> ></th>
+							<th><input id="monto" type="number"></th>
 						</tr>
 				</table>
+
+			</div>
+			<div class="down_aside">
 				<div id="container2">
-			<div class="mytabs">
-				<input type="radio" id="tabfree" name="mytabs" checked="checked">
-				<label for="tabfree">TazaMN</label>
-				<div class="tab">
-					<div class="Mytabs"></div>
-					<hr>
-					<p id="aeaxd">Valor de la taza (%)</p>
-					<div class="form-check">
-						<input class="form-check-input" type="radio"
-							name="flexRadioDefault" id="flexRadioDefault1"> Taza
-						nominal <input type="text" style="width: 100px; heigth: 100px">
+					<div class="mytabs">
+						<input type="radio" id="tabfree" name="mytabs" checked="checked">
+						<label for="tabfree">TazaMN</label>
+						<div class="tab">
+
+							<hr>
+							<p id="aeaxd">Valor de la taza (%)</p>
+							<div class="form-check tazas">
+								<input class="form-check-input" type="radio"
+									name="flexRadioDefault" id="flexRadioDefault1"> Taza
+								nominal <input type="text">
+
+							</div>
+
+							<div class="form-check tazas">
+								<input class="form-check-input" type="radio"
+									name="flexRadioDefault" id="flexRadioDefault2" checked>
+
+								Taza efectiva <input type="text">
+
+							</div>
+							<div class="plaza">
+								<p>Plaza de la taza</p>
+								<select name="plazadelataza" id="plazadelataza">
+									<option value="r">XD</option>
+									<option value="a">GAAAA</option>
+									<option value="v">RAAA</option>
+								</select>
+							</div>
+
+							<div class="plaza">
+								<p id="titulocapi">Plaza de capitalizacion</p>
+								<select name="plazadelataza" id="plazadecapitalizacion">
+									<option value="r">XD</option>
+									<option value="a">GAAAA</option>
+									<option value="v">RAAA</option>
+								</select>
+							</div>
+
+						</div>
+
+						<input type="radio" id="tabsilver" name="mytabs"> <label
+							for="tabsilver">TazaME</label>
+						<div class="tab">
+							<hr>
+							<p id="aeaxd">Valor de la taza(%)</p>
+							<div class="form-check tazas">
+								<input class="form-check-input" type="radio"
+									name="flexRadioDefault" id="flexRadioDefault1"> Taza
+								nominal <input type="text">
+
+							</div>
+
+							<div class="form-check tazas">
+								<input class="form-check-input" type="radio"
+									name="flexRadioDefault" id="flexRadioDefault2" checked>
+
+								Taza efectiva <input type="text">
+							</div>
+
+							<div class="plaza">
+								<p>Plaza de la taza</p>
+								<select name="plazadelataza" id="plazadelataza">
+									<option value="r">XD</option>
+									<option value="a">GAAAA</option>
+									<option value="v">RAAA</option>
+								</select>
+							</div>
+
+							<div class="plaza">
+								<p id="titulocapi">Plaza de capitalizacion</p>
+								<select name="plazadelataza" id="plazadecapitalizacion">
+									<option value="r">XD</option>
+									<option value="a">GAAAA</option>
+									<option value="v">RAAA</option>
+								</select>
+							</div>
+
+
+						</div>
 
 					</div>
-					<br>
-					<div class="form-check">
-						<input class="form-check-input" type="radio"
-							name="flexRadioDefault" id="flexRadioDefault2" checked>
-
-						Taza efectiva <input type="text"
-							style="width: 100px; heigth: 100px">
-
+				</div>
+				<div class="tabla2">
+					<table class="table table-striped">
+						<tr>
+							<th></th>
+							<th>ValorizaMN</th>
+							<th>ValorizaME</th>
+						</tr>
+						<tr>
+							<th>Monto Financiar</th>
+							<th> </th>
+							<th></th>
+						</tr>
+						<tr>
+							<th>Tasa Comision</th>
+							<th></th>
+							<th></th>
+							
+						</tr>
+						<tr>
+							<th>Comision</th>
+							<th></th>
+							<th></th>
+						</tr>
+						<tr>
+							<th>Monto a desembolsar</th>
+							<th></th>
+							<th></th>
+						</tr>
+					</table>
+				</div>
+				<div id="containerxd">
+					<p>Coste efectivo anual</p>
+					<form class="costeanualxd">
+						<input type="text" style="width: 250px; heigth: 250px">
+					</form>
+					<div class="btn-group" role="group"
+						aria-label="Basic outlined example">
+						<button type="button" class="btn btn-outline-primary">MN</button>
+						<button type="button" class="btn btn-outline-primary">ME</button>
+						<button type="button" class="btn btn-outline-primary">Cancelar</button>
 					</div>
-					<p>Plaza de la taza</p>
-					<select name="plazadelataza" id="plazadelataza">
-						<option value="r">XD</option>
-						<option value="a">GAAAA</option>
-						<option value="v">RAAA</option>
-					</select>
-					<p id="titulocapi">Plaza de capitalizacion</p>
-					<select name="plazadelataza" id="plazadecapitalizacion">
-						<option value="r">XD</option>
-						<option value="a">GAAAA</option>
-						<option value="v">RAAA</option>
-					</select>
+					<button type="button" class="btn-salir">Salir</button>
 
 				</div>
-
-				<input type="radio" id="tabsilver" name="mytabs"> <label
-					for="tabsilver">TazaME</label>
-				<div class="tab">
-					<hr>
-					<p id="aeaxd">Valor de la taza(%)</p>
-					<div class="form-check">
-						<input class="form-check-input" type="radio"
-							name="flexRadioDefault" id="flexRadioDefault1"> Taza
-						nominal <input type="text" style="width: 100px; heigth: 100px">
-
-					</div>
-					<br>
-					<div class="form-check">
-						<input class="form-check-input" type="radio"
-							name="flexRadioDefault" id="flexRadioDefault2" checked>
-
-						Taza efectiva <input type="text"
-							style="width: 100px; heigth: 100px">
-
-					</div>
-					<p>Plaza de la taza</p>
-					<select name="plazadelataza" id="plazadelataza">
-						<option value="r">XD</option>
-						<option value="a">GAAAA</option>
-						<option value="v">RAAA</option>
-					</select>
-					<p id="titulocapi">Plaza de capitalizacion</p>
-					<select name="plazadelataza" id="plazadecapitalizacion">
-						<option value="r">XD</option>
-						<option value="a">GAAAA</option>
-						<option value="v">RAAA</option>
-					</select>
-
-				</div>
-
 			</div>
-		</div>
 
-  <table class="Tabla2">
-            <tr>
-                <th></th>
-                <th>ValorizaMN</th>
-                <th>ValorizaME</th>
-            </tr>
-            <tr>
-                <th> Monto Financiar</th>
-            </tr>
-            <tr>
-                <th> Tasa Comision</th>
-            </tr>
-            <tr>
-                <th> Comision</th>
-            </tr>
-            <tr>
-                <th>Monto a desembolsar</th>
-            </tr>
-        </table>
-            <div id="containerxd">
-                <p>Coste efectivo anual</p>
-                    <form class="costeanualxd">
-                    <input type="text"style="width : 250px; heigth : 250px" >
-                    </form>
-                    <div class="btn-group" role="group" aria-label="Basic outlined example">
-                    <button type="button" class="btn btn-outline-primary">MN</button>
-                    <button type="button" class="btn btn-outline-primary">ME</button>
-                    <button type="button" class="btn btn-outline-primary">Cancelar</button>
-                    </div>
-                    <button type="button" class="btn-salir">Salir</button>
-
-            </div>
-        
-			</div>
 
 		</form>
-		
+
 	</section>
+	<script th:inline="javascript">
+console.log(this.valores)
+</script>
 
 	<script th:src="@{js/bootstrap.bundle.min.js}"></script>
 </body>
 </html>
+

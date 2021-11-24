@@ -2,6 +2,7 @@ package pe.edu.upc.galaxy.controller;
 
 import java.util.Date;
 
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 
 @Controller
@@ -29,4 +30,5 @@ public class CalculoController {
 		double desembolso = Monto+(Math.pow(1+perTasaEfectiva, NumDiasVenci/NumDiasTasa));
 		return desembolso;
 	}
+	
 }

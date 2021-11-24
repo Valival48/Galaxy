@@ -1,22 +1,21 @@
-/*{
-    border: 1px solid black;
-}*/
-
 html *{
 	box-sizing: border-box;
-	box-sizing: inherit
+	box-sizing: inherit;
+	font-family: Poppins;
 }
 *{
 	box-sizing: inherit
 }
 body{
     background-color: #CFC6F5;
+    font-family: Poppins;
+
 }
 .btn{
     background-color: #6064DF;
     border-radius: 18px;
-    padding-left: 45px;
-    padding-right: 45px;
+    padding-left: 20px;
+    padding-right: 20px;
     font-weight: 600;
     font-size: 1.1rem;
 }
@@ -43,6 +42,7 @@ body{
 .main{
     display: flex;
     flex-direction: row-reverse;
+    font-family: Poppins;
 }
 
 .pos-f-t{
@@ -57,6 +57,7 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    font-family: Poppins;
 }
 
 .titulo{
@@ -66,6 +67,7 @@ body{
     padding-left: 5%;
     color: #6064DF;
     margin-bottom: 10px;
+    font-family: Poppins;
 }
 
 .navbar{
@@ -81,11 +83,14 @@ body{
     margin-bottom:30px;
     height: 80%;
     width: 90%;
+    font-family: Poppins;
 }
 
 .titulo h1{
     font-weight: 700;
     font-size: 65px;
+	margin-left: 90px;
+	font-family: Poppins;
 }
 .table{
 	margin-bottom:10px;
@@ -98,6 +103,7 @@ body{
 	flex-direction:row;
 	justify-content: space-between;
 	margin-bottom: 30px;
+	font-family: Poppins;
 }
 
 .linea2 {
@@ -107,20 +113,157 @@ body{
 	align-items: baseline;
 	justify-content: space-between;
 	margin-bottom: 30px;
+	font-family: Poppins;
 }
 
 .campo {
 	display: flex;
 	align-items: center;
 	gap: 50px;
+	font-family: Poppins;
 }
 
 .campo2{
 	display: flex;
 	align-items: center;
 	gap: 100px;
+	font-family: Poppins;
 }
 
 .bg{
 	 background-color: #9E9BED;
+}
+
+label{
+    margin-left: 30px;
+    color: #707070;
+    font-family: Poppins;
+}
+
+.down_aside {
+    display: flex;
+    max-width: 1100px;
+    justify-content: space-around;
+    gap: 50px;
+    flex-wrap: nowrap;
+}
+
+#container2{
+    max-width: 400px;
+    height: 280px;
+    background-color: white;
+}
+.Tabla2{
+    background-color: #E0E0E0;
+}
+#containerxd{
+    width: 300px;
+    height: 220px;
+    border: 1px solid black;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px;
+}
+.botonxd{
+    background-color: #6064DF;
+    border-radius: 10px;
+    color: white;
+    width: 100px;
+    height: 30px;
+}
+.primerafila{
+    background-color: #E0E0E0;
+}
+body{
+    background-color: #CFC6F5;
+    font-family: Poppins;
+}
+table{
+    margin-left: 30px;
+
+}
+
+.costeanualxd{
+    margin-left: 20px;
+}
+.btn-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:center;
+}
+.btn2 {
+    padding-right: 3px;
+    padding-left: 3px;
+}
+.btn-outline-primary{
+    margin-top: 5px;
+    background-color: #6064DF;
+    color: white;
+    transition: all .6s ease;
+}
+.btn-outline-primary:hover {
+    transform:scale(1.15);
+}
+.btn-salir{
+    margin-top: 20px;
+    width: 60px;
+    height: 30px;
+    border: none;
+    background-color: #c7c8de;
+    cursor: pointer;
+}
+tr,th{
+    padding-right: 20px;
+    padding-left: 20px;
+    font-size: 15px;
+
+}
+.tab {
+    display: flex;
+    flex-direction: column;
+}
+.tazas {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+.plaza {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+
+.mytabs {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 12px;
+
+}
+.mytabs input[type="radio"] {
+    display: none;
+}
+.mytabs label {
+    cursor: pointer;
+}
+.mytabs .tab {
+    width: 100%;
+    padding: 20px;
+    background: #fff;
+    order: 1;
+    display: none;
+}
+.mytabs .tab h2 {
+    font-size: 3em;
+}
+
+.mytabs input[type='radio']:checked + label + .tab {
+    display: block;
+}
+
+.mytabs input[type="radio"]:checked + label {
+    background: #fff;
 }

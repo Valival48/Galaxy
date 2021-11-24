@@ -28,41 +28,41 @@
 			</button>
 		</nav>
 	</div>
-	<section class="formulario" >
+	<section class="formulario">
 		<div class="titulo">
 			<h1>Estructura de cartera</h1>
 		</div>
 
-		<form class="formulario-div" th:action="@{/cartera}" th:object="${valor}" method="get" >
+		<form class="formulario-div" th:action="@{/cartera}"
+			th:object="${valor}" method="get">
 			<br>
 			<div class="linea1">
 				<div class="campo">
 					<label for="nombre">Cliente</label>
 					<div class="form-group">
 						<select id="cliente" th:field="*{cliente.id}" class="form-control">
-						
-							<option th:each="cliente : ${clientes}"
-									th:value="${cliente.id}" 
-									th:text="${cliente.name}"
-									th:selected="(${cliente.id} == *{cliente.id})"></option>
+
+							<option th:each="cliente : ${clientes}" th:value="${cliente.id}"
+								th:text="${cliente.name}"
+								th:selected="(${cliente.id} == *{cliente.id})"></option>
 						</select>
 					</div>
 				</div>
-		
-				
-				</div>
+
+
+			</div>
 			<div class="linea2">
 				<div class="campo2">
 					<label for="nombre">Estructura de cartera al:</label> <input
 						type="date" class="form-control" id="cartera">
 
-					
+
 				</div>
 			</div>
-			
-			
-			<div class="tabla" >
-			
+
+
+			<div class="tabla">
+
 				<table class="table">
 					<thead>
 						<tr>
@@ -72,24 +72,24 @@
 							<th>ValorizaMN</th>
 							<th>ValorizaME</th>
 						</tr>
-						
+
 					</thead>
-					
+
 					<tbody>
-						<tr>					
-						<tr th:each="valor : ${valores}" >
+						<tr>
+						<tr th:each="valor : ${valores}">
 							<th th:text="${valor.tipo}"></th>
 							<th th:text="${valor.nombreEmisor}"></th>
 							<th th:text="${valor.garantia}"></th>
 							<th th:text="${valor.importe}"></th>
-							<th th:text="${valor.importe}/4.1"></th>
-						</tr>	
+							<th th:text="${#numbers.formatDecimal(valor.importe/4.1,0,'COMMA',2,'POINT')}"></th>
+						</tr>
 					</tbody>
-					
+
 				</table>
-				</div>
-					<div class="tabla">
-			
+			</div>
+			<div class="tabla">
+
 				<table class="table">
 					<thead>
 						<tr>
@@ -99,26 +99,29 @@
 							<th>ValorizaMN</th>
 							<th>ValorizaME</th>
 						</tr>
-						
+
 					</thead>
-					
+
 					<tbody>
-						<tr>					
-						<tr th:each="valor2 : ${valores2}" >
+						<tr>
+						<tr th:each="valor2 : ${valores2}">
 							<th th:text="${valor2.tipo}"></th>
 							<th th:text="${valor2.nombreEmisor}"></th>
 							<th th:text="${valor2.garantia}"></th>
-							<th th:text="${valor2.importe}*4.1"></th>
+							<th th:text="${#numbers.formatDecimal(valor2.importe*4.1,0,'COMMA',2,'POINT')}"></th>
 							<th th:text="${valor2.importe}"></th>
-						</tr>	
+						</tr>
 					</tbody>
-					
 				</table>
-				</div>
+			</div>
 		</form>
 	</section>
 
-
+	<script>
+		function std(event) {
+	    this.value = parseFloat(this.value).toFixed(2);
+	}  
+		</script>
 
 	<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
 </body>

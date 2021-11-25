@@ -1,6 +1,7 @@
 package pe.edu.upc.galaxy.business.impl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -30,5 +31,13 @@ public class ValorServiceImpl implements ValorService {
 	public List<Valor> filterByMN() {
 		return valorRepository.filterByMN();
 	}
+
+	@Override
+	public Optional<Valor> findById(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
 
 }

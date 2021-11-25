@@ -76,7 +76,7 @@
 
 						</tr>
 						<tr th:each="valor : ${valores}">
-							<th><input type="checkbox"></th>
+							<th><input  type="checkbox" th:onclick="'javascript:check('+ ${valor.id} +')'"></th>
 
 							<th th:text="${valor.fechaEmision}"></th>
 
@@ -96,7 +96,7 @@
 
 							<th th:text="${valor.importe}"></th>
 
-							<th><input id="monto" type="number"></th>
+							<th><input id="monto" type="text"></th>
 						</tr>
 				</table>
 
@@ -127,18 +127,30 @@
 							<div class="plaza">
 								<p>Plaza de la taza</p>
 								<select name="plazadelataza" id="plazadelataza">
-									<option value="r">XD</option>
-									<option value="a">GAAAA</option>
-									<option value="v">RAAA</option>
+									<option value="360">Anual</option>
+								 	<option value="180">Semestreal</option>
+								 	<option value="120">Cuatrimestral</option>
+								 	<option value="90">Trimestral</option>
+								 	<option value="60">Bimestral</option>
+									<option value="30">Mensual</option>
+									<option value="15">Quincenal</option>
+									<option value="7">Semanal</option>
+									<option value="1">Diario</option>
 								</select>
 							</div>
 
 							<div class="plaza">
 								<p id="titulocapi">Plaza de capitalizacion</p>
 								<select name="plazadelataza" id="plazadecapitalizacion">
-									<option value="r">XD</option>
-									<option value="a">GAAAA</option>
-									<option value="v">RAAA</option>
+									<option value="1">Anual</option>
+								 	<option value="2">Semestreal</option>
+								 	<option value="3">Cuatrimestral</option>
+								 	<option value="4">Trimestral</option>
+								 	<option value="5">Bimestral</option>
+									<option value="6">Mensual</option>
+									<option value="7">Quincenal</option>
+									<option value="8">Semanal</option>
+									<option value="9">Diario</option>
 								</select>
 							</div>
 
@@ -166,20 +178,19 @@
 							<div class="plaza">
 								<p>Plaza de la taza</p>
 								<select name="plazadelataza" id="plazadelataza">
-									<option value="r">XD</option>
-									<option value="a">GAAAA</option>
-									<option value="v">RAAA</option>
+									<option value="360">Anual</option>
+								 	<option value="180">Semestreal</option>
+								 	<option value="120">Cuatrimestral</option>
+								 	<option value="90">Trimestral</option>
+								 	<option value="60">Bimestral</option>
+									<option value="30">Mensual</option>
+									<option value="15">Quincenal</option>
+									<option value="7">Semanal</option>
+									<option value="1">Diario</option>
 								</select>
 							</div>
 
-							<div class="plaza">
-								<p id="titulocapi">Plaza de capitalizacion</p>
-								<select name="plazadelataza" id="plazadecapitalizacion">
-									<option value="r">XD</option>
-									<option value="a">GAAAA</option>
-									<option value="v">RAAA</option>
-								</select>
-							</div>
+					
 
 
 						</div>
